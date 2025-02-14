@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Welcome to the Mathematical Application!</h2>
-    <h2>This application is hosted on my EC2 instance with Public IP: <?php echo file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4'); ?></h2>
+    <h2>This application is hosted on my EC2 instance with Public IP:</h2>
          <h2>Enter two numbers and select an operation to calculate the result.</h2>
     <form action="process_math.php" method="POST">
         <div>
