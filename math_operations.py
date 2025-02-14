@@ -45,20 +45,11 @@ def perform_operation(num1, num2, operation):
     except Exception as e:
         return {"error": str(e)}
 
-def get_ec2_public_ip():
-    try:
-        response = requests.get('http://169.254.169.254/latest/meta-data/public-ipv4', timeout=2)
-        return response.text
-    except:
-        return "Could not retrieve public IP"
-
 if __name__ == "__main__":
     input1 = int(sys.argv[1])
     input2 = int(sys.argv[2])
     operation = sys.argv[3]
     host = sys.argv[4]
-    ec2_host = get_ec2_public_ip()
-
     result = perform_operation(input1, input2, operation)
 
     if "error" in result:
@@ -91,7 +82,7 @@ if __name__ == "__main__":
             <p>Input2: {input2}</p>
             <p>Result: {result['result']}</p>
             <a href="math_form.php">Back to Top</a>
-            <p>This result was processed on my EC2 instance with Public IP: {ec2_host}</p>
+            <p>This result was processed on my EC2 instance with Public IP:</p>
             <p>Access the application via Load Balancer URL: {host}</p>
         </body>
         </html>
